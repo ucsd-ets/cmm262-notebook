@@ -1,0 +1,17 @@
+name: py-bio
+channels:
+- conda-forge
+- defaults
+- bioconda
+- anaconda
+dependencies:
+- python=3.7
+- pip
+- goatools
+- networkx
+- gseapy
+- scanpy
+- numpy
+- seaborn
+- scipy
+- matplotlib
