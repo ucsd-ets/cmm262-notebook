@@ -2,8 +2,6 @@ FROM ucsdets/datahub-base-notebook:2020.2-stable
 
 USER root
 
-COPY r-cmd /usr/bin
-
 # install linux packages
 RUN apt-get update && \
     apt-get install tk-dev \
