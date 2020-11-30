@@ -59,7 +59,8 @@ RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5
 
 # set r-bio as default
 COPY run_jupyter.sh /
-COPY activate_rbio.sh /
-RUN chmod +x /*.sh
+
+RUN chmod +x /*.sh && \
+    echo "activate_rbio() { source activate r-bio; }" >> /etc/bash.bashrc
 
 USER $NB_USER
