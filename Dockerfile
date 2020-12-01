@@ -10,6 +10,9 @@ RUN apt-get update && \
                     wget \
                     default-jdk \
                     libbz2-dev \
+                    apt-utils \
+                    gdebi-core \
+                    dpkg-sig \
                     -y
 
 # build conda environment with required r packages & install RStudio into it
@@ -22,22 +25,21 @@ ENV PATH="${PATH}:/usr/lib/rstudio-server/bin"
 ENV LD_LIBRARY_PATH="/usr/lib/R/lib:/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server:/opt/conda/envs/r-bio/bin/R/lib"
 ENV SHELL=/bin/bash
 
-RUN conda run -n r-bio /bin/bash -c "ln -s /opt/conda/bin/R /usr/bin/R && \
-                                      apt-get update && \
-                                      apt-get -qq install -y apt-utils gdebi-core dpkg-sig && \
-                                      gpg --keyserver keys.gnupg.net --recv-keys 3F32EE77E331692F && \
-                                      curl -L ${RSTUDIO_URL} > ${RSTUDIO_PKG} && \
-                                      dpkg-sig --verify ${RSTUDIO_PKG} && \
-                                      gdebi -n ${RSTUDIO_PKG} && \
-                                      rm -f ${RSTUDIO_PKG} && \
-                                      echo '/opt/conda/envs/r-bio/bin/R' > /etc/ld.so.conf.d/r.conf && /sbin/ldconfig -v && \
-                                      apt-get clean && rm -rf /var/lib/apt/lists/* && \
-                                      rm -f /usr/bin/R && \
-                                      pip install jupyter-rsession-proxy && \
-                                      mkdir -p /etc/rstudio && echo 'auth-minimum-user-id=100' >> /etc/rstudio/rserver.conf && \
-                                      ( echo 'http_proxy=${http_proxy-http://web.ucsd.edu:3128}' ; echo 'https_proxy=${https_proxy-http://web.ucsd.edu:3128}' ) >> /opt/conda/envs/r-bio/bin/R/etc/Renviron.site && \
-                                      ( echo 'LD_PRELOAD=/opt/k8s-support/lib/libnss_wrapper.so'; echo 'NSS_WRAPPER_PASSWD=/tmp/passwd.wrap'; echo 'NSS_WRAPPER_GROUP=/tmp/group.wrap' ) >> /opt/conda/envs/r-bio/bin/R/etc/Renviron.site && \
-									  ipython kernel install --name=r-bio"
+RUN ln -s /opt/conda/bin/R /usr/bin/R && \
+    gpg --keyserver keys.gnupg.net --recv-keys 3F32EE77E331692F && \
+    curl -L ${RSTUDIO_URL} > ${RSTUDIO_PKG} && \
+    dpkg-sig --verify ${RSTUDIO_PKG} && \
+    gdebi -n ${RSTUDIO_PKG} && \
+    rm -f ${RSTUDIO_PKG} && \
+    echo '/opt/conda/envs/r-bio/bin/R' > /etc/ld.so.conf.d/r.conf && /sbin/ldconfig -v && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    rm -f /usr/bin/R && \
+    pip install jupyter-rsession-proxy && \
+    mkdir -p /etc/rstudio && echo 'auth-minimum-user-id=100' >> /etc/rstudio/rserver.conf && \
+    ( echo 'http_proxy=${http_proxy-http://web.ucsd.edu:3128}' ; echo 'https_proxy=${https_proxy-http://web.ucsd.edu:3128}' ) >> /opt/conda/envs/r-bio/bin/R/etc/Renviron.site && \
+    ( echo 'LD_PRELOAD=/opt/k8s-support/lib/libnss_wrapper.so'; echo 'NSS_WRAPPER_PASSWD=/tmp/passwd.wrap'; echo 'NSS_WRAPPER_GROUP=/tmp/group.wrap' ) >> /opt/conda/envs/r-bio/bin/R/etc/Renviron.site
+
+RUN conda run -n r-bio /bin/bash -c "ipython kernel install --name=r-bio"
 
 # create py-bio conda environment with required python packages
 COPY py-bio.yaml /tmp
