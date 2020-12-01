@@ -61,6 +61,9 @@ RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5
 COPY run_jupyter.sh /
 
 RUN chmod +x /*.sh && \
-    echo "activate_rbio() { source activate r-bio; }" >> /etc/bash.bashrc
+    echo "activate_rbio() { source activate r-bio; }" >> /etc/bash.bashrc && \
+    echo "export -f activate_rbio" >> /etc/bash.bashrc
+
+
 
 USER $NB_USER
