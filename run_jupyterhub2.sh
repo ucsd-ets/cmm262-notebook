@@ -2,4 +2,4 @@
 
 source activate r-bio
 
-exec "jupyterhub-singleuser $@"
+jupyterhub-singleuser "$@"
