@@ -24,6 +24,7 @@ ENV RSTUDIO_URL=https://download2.rstudio.org/server/bionic/amd64/${RSTUDIO_PKG}
 ENV PATH="${PATH}:/usr/lib/rstudio-server/bin"
 ENV LD_LIBRARY_PATH="/usr/lib/R/lib:/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server:/opt/conda/envs/r-bio/bin/R/lib"
 ENV SHELL=/bin/bash
+ENV R_LIB_SITE=/opt/conda/envs/r-bio/lib/R/library
 
 # install RStudio
 RUN ln -s /opt/conda/envs/r-bio/bin/R /usr/bin/R && \
@@ -61,16 +62,5 @@ RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5
     mv FastQC /opt/ && \
     chmod 755 /opt/FastQC/fastqc && \
     rm -rf /tmp/fastqc_*
-
-# set r-bio as default
-COPY run_jupyter.sh /
-COPY run_jupyterhub.sh /
-COPY run_jupyterhub2.sh /
-
-RUN chmod +x /*.sh && \
-    echo "activate_rbio() { source activate r-bio; }" >> /etc/bash.bashrc && \
-    echo "export -f activate_rbio" >> /etc/bash.bashrc
-
-ENV R_LIB_SITE=/opt/conda/envs/r-bio/lib/R/library
 
 USER $NB_USER
