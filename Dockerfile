@@ -63,4 +63,6 @@ RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5
     chmod 755 /opt/FastQC/fastqc && \
     rm -rf /tmp/fastqc_*
 
+RUN conda install -c conda-forge bash_kernel
+
 USER $NB_USER
