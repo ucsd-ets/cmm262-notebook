@@ -2,6 +2,9 @@ FROM ucsdets/datahub-base-notebook:2020.2-stable
 
 USER root
 
+RUN sed -i 's:^path-exclude=/usr/share/man:#path-exclude=/usr/share/man:' \
+        /etc/dpkg/dpkg.cfg.d/excludes
+
 # install linux packages
 RUN apt-get update && \
     apt-get install tk-dev \
@@ -13,6 +16,9 @@ RUN apt-get update && \
                     apt-utils \
                     gdebi-core \
                     dpkg-sig \
+                    man \
+                    man-db \
+                    manpages-posix \
                     -y
 
 # build conda environment with required r packages
@@ -64,5 +70,7 @@ RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5
     rm -rf /tmp/fastqc_*
 
 RUN conda install -c conda-forge bash_kernel
+
+RUN yes | unminimize || echo "done"
 
 USER $NB_USER
