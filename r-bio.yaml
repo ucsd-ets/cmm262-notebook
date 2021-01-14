@@ -7,6 +7,7 @@ channels:
 - anaconda
 dependencies:
 - bioconductor-deseq2
+- bioconductor-compcoder
 - r-essentials
 - python=3.8
 - pip
@@ -22,3 +23,6 @@ dependencies:
 - htseq
 - bwa
 - bwa-mem2
+- star
+- fastqc
+- samtools
