@@ -15,3 +15,16 @@ dependencies:
 - seaborn
 - scipy
 - matplotlib
+- plink
+- homer
+- bedtools
+- samtools
+- bcftools
+- subread
+- htseq
+- bwa
+- bwa-mem2
+- star
+- fastqc
+- samtools
+- multiqc
