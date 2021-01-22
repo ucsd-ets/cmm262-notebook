@@ -6,6 +6,7 @@ channels:
 - r
 - anaconda
 dependencies:
+- bioconductor-biomart
 - bioconductor-deseq2
 - bioconductor-compcoder
 - r-essentials
