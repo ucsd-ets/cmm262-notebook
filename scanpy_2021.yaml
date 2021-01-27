@@ -19,5 +19,4 @@ dependencies:
   - r-matrix
   - scanpy
   - louvain
-  - multicore-tsne
   - anndata2ri
