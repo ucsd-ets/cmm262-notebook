@@ -71,6 +71,11 @@ RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5
 
 RUN conda install -c conda-forge bash_kernel
 
+# create scanpy_2021 conda environment with required python packages
+COPY scanpy_2021.yaml /tmp
+RUN conda env create --file /tmp/scanpy_2021.yaml && \
+    conda run -n scanpy_2021 /bin/bash -c "ipython kernel install --name=scanpy_2021"
+
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER
