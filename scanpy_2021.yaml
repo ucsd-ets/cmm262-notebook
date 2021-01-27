@@ -17,3 +17,7 @@ dependencies:
   - rpy2
   - jupyterlab
   - r-matrix
+  - scanpy
+  - louvain
+  - multicore-tsne
+  - anndata2ri
