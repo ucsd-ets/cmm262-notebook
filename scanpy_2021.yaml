@@ -1,0 +1,19 @@
+name: scanpy_2021
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - seaborn
+  - pytables
+  - scikit-learn
+  - statsmodels
+  - numba
+  - python-igraph
+  - leidenalg
+  - ipykernel
+  - gprofiler-official
+  - rpy2
+  - jupyterlab
+  - r-matrix
