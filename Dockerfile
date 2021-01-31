@@ -76,6 +76,10 @@ COPY scanpy_2021.yaml /tmp
 RUN conda env create --file /tmp/scanpy_2021.yaml && \
     conda run -n scanpy_2021 /bin/bash -c "ipython kernel install --name=scanpy_2021"
 
+COPY spatial-tx.yml /tmp
+RUN conda env create --file /tmp/spatial-tx.yml && \
+    conda run -n spatial-tx /bin/bash -c "ipython kernel install --name=spatial-tx"
+
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER

@@ -1,0 +1,14 @@
+name: spatial-tx
+channels:
+  - defaults
+dependencies:
+  - seaborn
+  - leidenalg
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+    - scanpy==1.6.1
+    - scikit-image==0.18.1
+    - scikit-learn==0.24.1
+    - starfish==0.2.1
