@@ -28,3 +28,4 @@ dependencies:
 - fastqc
 - samtools
 - multiqc
+- bowtie2
