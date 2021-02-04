@@ -19,7 +19,6 @@ RUN apt-get update && \
                     man \
                     man-db \
                     manpages-posix \
-                    zip \
                     -y 
                     
 
