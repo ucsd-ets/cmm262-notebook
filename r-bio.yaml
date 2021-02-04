@@ -29,3 +29,4 @@ dependencies:
 - samtools
 - multiqc
 - bowtie2
+- zip
