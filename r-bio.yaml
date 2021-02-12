@@ -9,6 +9,8 @@ dependencies:
 - bioconductor-biomart
 - bioconductor-deseq2
 - bioconductor-compcoder
+- r-wgcna
+- r-igraph
 - r-essentials
 - python=3.8
 - pip
