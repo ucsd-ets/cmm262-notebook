@@ -9,6 +9,7 @@ dependencies:
 - bioconductor-biomart
 - bioconductor-deseq2
 - bioconductor-compcoder
+- bioconductor-org.mm.eg.db
 - r-wgcna
 - r-igraph
 - r-netindices
