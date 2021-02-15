@@ -11,6 +11,7 @@ dependencies:
 - bioconductor-compcoder
 - r-wgcna
 - r-igraph
+- r-netindices
 - r-essentials
 - python=3.8
 - pip
