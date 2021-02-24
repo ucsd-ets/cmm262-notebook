@@ -29,5 +29,3 @@ dependencies:
 - samtools
 - multiqc
 - bowtie2
-- varscan
-- gatk
