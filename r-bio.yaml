@@ -34,3 +34,5 @@ dependencies:
 - multiqc
 - bowtie2
 - zip
+- varscan
+- gatk
