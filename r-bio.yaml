@@ -33,6 +33,7 @@ dependencies:
 - samtools
 - multiqc
 - bowtie2
+- cnvkit
 - zip
 - varscan
 - gatk
