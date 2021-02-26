@@ -37,4 +37,6 @@ dependencies:
 - zip
 - varscan
 - gatk
-- picard
+- bioconda::picard
+- bioconda::vcflib
+- bioconda::vcfkit
