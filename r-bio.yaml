@@ -37,3 +37,6 @@ dependencies:
 - zip
 - varscan
 - gatk
+- picard
+- vcflib
+- vcfkit
