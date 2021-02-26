@@ -36,4 +36,4 @@ dependencies:
 - cnvkit
 - zip
 - varscan
-- gatk
+- gatk4
