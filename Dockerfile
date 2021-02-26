@@ -80,6 +80,10 @@ RUN conda env create --file /tmp/scanpy_2021.yaml && \
 COPY spatial-tx.yml /tmp
 RUN conda env create --file /tmp/spatial-tx.yml && \
     conda run -n spatial-tx /bin/bash -c "ipython kernel install --name=spatial-tx"
+    
+COPY variant_calling.yml /tmp
+RUN conda env create --file /tmp/variant_calling.yml && \
+    conda run -n variant_calling /bin/bash -c "ipython kernel install --name=variant_calling"
 
 RUN yes | unminimize || echo "done"
 
