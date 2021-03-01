@@ -37,3 +37,4 @@ dependencies:
 - zip
 - varscan
 - gatk4
+- admixture
