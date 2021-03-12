@@ -140,3 +140,4 @@ dependencies:
   - zipp=1.0.0
   - zlib=1.2.11
   - zstd=1.4.8
+  - samtools
