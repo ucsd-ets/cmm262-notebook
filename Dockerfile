@@ -88,4 +88,4 @@ RUN conda env create --file /tmp/variant_calling.yml && \
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER
-#test
+#test2
