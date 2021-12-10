@@ -1,4 +1,4 @@
-FROM ucsdets/datahub-base-notebook:2022.1-stable
+FROM ucsdets/datahub-base-notebook:2020.2-stable
 
 USER root
 
@@ -19,8 +19,8 @@ RUN apt-get update && \
                     man \
                     man-db \
                     manpages-posix \
-                    -y 
-                    
+                    -y
+
 
 # build conda environment with required r packages
 COPY r-bio.yaml /tmp
@@ -80,7 +80,7 @@ RUN conda env create --file /tmp/scanpy_2021.yaml && \
 COPY spatial-tx.yml /tmp
 RUN conda env create --file /tmp/spatial-tx.yml && \
     conda run -n spatial-tx /bin/bash -c "ipython kernel install --name=spatial-tx"
-    
+
 COPY variant_calling.yml /tmp
 RUN conda env create --file /tmp/variant_calling.yml && \
     conda run -n variant_calling /bin/bash -c "ipython kernel install --name=variant_calling"
@@ -88,3 +88,4 @@ RUN conda env create --file /tmp/variant_calling.yml && \
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER
+#test
