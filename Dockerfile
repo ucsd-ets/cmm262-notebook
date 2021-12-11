@@ -35,7 +35,7 @@ ENV R_LIB_SITE=/opt/conda/envs/r-bio/lib/R/library
 
 # install RStudio
 RUN ln -s /opt/conda/envs/r-bio/bin/R /usr/bin/R && \
-    gpg --keyserver keys.gnupg.net --recv-keys 3F32EE77E331692F && \
+    gpg --keyserver hkp://pgp.mit.edu:11371 --recv-keys 3F32EE77E331692F && \
     curl -L ${RSTUDIO_URL} > ${RSTUDIO_PKG} && \
     dpkg-sig --verify ${RSTUDIO_PKG} && \
     gdebi -n ${RSTUDIO_PKG} && \
