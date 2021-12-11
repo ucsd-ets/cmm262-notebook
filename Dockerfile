@@ -1,4 +1,4 @@
-FROM ucsdets/datahub-base-notebook:2020.2-stable
+FROM ucsdets/datahub-base-notebook:2022.1-stable
 
 USER root
 
@@ -24,7 +24,7 @@ RUN apt-get update && \
 
 # build conda environment with required r packages
 COPY r-bio.yaml /tmp
-RUN conda env create --file /tmp/r-bio.yaml
+RUN conda env create -v --file /tmp/r-bio.yaml
 
 ENV RSTUDIO_PKG=rstudio-server-1.2.5042-amd64.deb
 ENV RSTUDIO_URL=https://download2.rstudio.org/server/bionic/amd64/${RSTUDIO_PKG}
