@@ -87,4 +87,6 @@ RUN conda env create --file /tmp/variant_calling.yml && \
 
 RUN yes | unminimize || echo "done"
 
+RUN apt-get install tree -y
+
 USER $NB_USER
