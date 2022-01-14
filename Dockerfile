@@ -19,6 +19,7 @@ RUN apt-get update && \
                     man \
                     man-db \
                     manpages-posix \
+                    tree \
                     -y 
                     
 
@@ -33,22 +34,7 @@ ENV LD_LIBRARY_PATH="/usr/lib/R/lib:/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/
 ENV SHELL=/bin/bash
 ENV R_LIB_SITE=/opt/conda/envs/r-bio/lib/R/library
 
-# install RStudio
-RUN ln -s /opt/conda/envs/r-bio/bin/R /usr/bin/R && \
-    gpg --keyserver keys.gnupg.net --recv-keys 3F32EE77E331692F && \
-    curl -L ${RSTUDIO_URL} > ${RSTUDIO_PKG} && \
-    dpkg-sig --verify ${RSTUDIO_PKG} && \
-    gdebi -n ${RSTUDIO_PKG} && \
-    rm -f ${RSTUDIO_PKG} && \
-    echo '/opt/conda/envs/r-bio/bin/R' > /etc/ld.so.conf.d/r.conf && /sbin/ldconfig -v && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    rm -f /usr/bin/R && \
-    pip install jupyter-rsession-proxy && \
-    mkdir -p /etc/rstudio && echo 'auth-minimum-user-id=100' >> /etc/rstudio/rserver.conf && \
-    ( echo 'http_proxy=${http_proxy-http://web.ucsd.edu:3128}' ; echo 'https_proxy=${https_proxy-http://web.ucsd.edu:3128}' ) >> /opt/conda/envs/r-bio/etc/Renviron.site && \
-    ( echo 'LD_PRELOAD=/opt/k8s-support/lib/libnss_wrapper.so'; echo 'NSS_WRAPPER_PASSWD=/tmp/passwd.wrap'; echo 'NSS_WRAPPER_GROUP=/tmp/group.wrap' ) >> /opt/conda/envs/r-bio/etc/Renviron.site
-
-# linux hackery to remove paths to default R
+# linux hack to remove paths to default R
 RUN rm -rf /opt/conda/bin/R /opt/conda/lib/R && \
     ln -s /opt/conda/envs/r-bio/bin/R /opt/conda/bin/R
 
