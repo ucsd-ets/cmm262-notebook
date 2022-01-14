@@ -1,4 +1,4 @@
-FROM ucsdets/datahub-base-notebook:2020.2-stable
+FROM ucsdets/datascience-rstudio:2021.3-stable
 
 USER root
 
