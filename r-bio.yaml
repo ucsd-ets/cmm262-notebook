@@ -37,6 +37,6 @@ dependencies:
 - varscan
 - gatk4
 - admixture
-- apeglm
+- bioconductor-apeglm
 - r-palmerpenguins
 - r-ggridges
