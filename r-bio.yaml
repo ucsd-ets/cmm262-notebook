@@ -38,5 +38,8 @@ dependencies:
 - gatk4
 - admixture
 - apeglm
+<<<<<<< HEAD
 - r-palmerpenguins
 - r-ggridges
+=======
+>>>>>>> eac692d6a85bc70e7cf57ddb22efe1fc07ccd152
