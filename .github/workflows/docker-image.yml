@@ -2,17 +2,34 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ 2022.1.1 ]
+    branches:
+    - '*'
   pull_request:
-    branches: [ 2022.1.1 ]
+    branches:
+    - '*'
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+    
+    #  https://stackoverflow.com/questions/58033366/how-to-get-the-current-branch-within-github-actions
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag ucsdets/cmm262-notebook:${{ steps.extract_branch.outputs.branch }}
+    
+    # https://github.com/docker/metadata-action
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+    - name: Push to Dockerhub
+      run: docker push ucsdets/cmm262-notebook:${{ steps.extract_branch.outputs.branch }}

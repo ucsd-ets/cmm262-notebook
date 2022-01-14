@@ -27,13 +27,6 @@ RUN apt-get update && \
 COPY r-bio.yaml /tmp
 RUN conda env create --file /tmp/r-bio.yaml
 
-ENV RSTUDIO_PKG=rstudio-server-1.2.5042-amd64.deb
-ENV RSTUDIO_URL=https://download2.rstudio.org/server/bionic/amd64/${RSTUDIO_PKG}
-ENV PATH="${PATH}:/usr/lib/rstudio-server/bin"
-ENV LD_LIBRARY_PATH="/usr/lib/R/lib:/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server:/opt/conda/envs/r-bio/bin/R/lib"
-ENV SHELL=/bin/bash
-ENV R_LIB_SITE=/opt/conda/envs/r-bio/lib/R/library
-
 # linux hack to remove paths to default R
 RUN rm -rf /opt/conda/bin/R /opt/conda/lib/R && \
     ln -s /opt/conda/envs/r-bio/bin/R /opt/conda/bin/R
