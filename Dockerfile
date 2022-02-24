@@ -31,7 +31,7 @@ RUN conda env create --file /tmp/r-bio.yaml
 RUN rm -rf /opt/conda/bin/R /opt/conda/lib/R && \
     ln -s /opt/conda/envs/r-bio/bin/R /opt/conda/bin/R
 
-# create py-bio conda environment with required python packages
+# # create py-bio conda environment with required python packages
 COPY py-bio.yaml /tmp
 RUN conda env create --file /tmp/py-bio.yaml && \
     conda run -n py-bio /bin/bash -c "ipython kernel install --name=py-bio"
