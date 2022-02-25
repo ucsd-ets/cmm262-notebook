@@ -432,7 +432,7 @@ dependencies:
 - star=2.7.8a=0
 - subread=2.0.1=hed695b0_0
 - sysroot_linux-64=2.12=h77966d4_13
-- tbb=2021.1.1=h4bd325d_0
+- tbb=2020.2
 - terminado=0.9.2=py38h578d9bd_0
 - testpath=0.4.4=py_0
 - tk=8.6.10=h21135ba_1
