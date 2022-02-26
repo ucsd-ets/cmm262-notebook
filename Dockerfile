@@ -25,7 +25,8 @@ RUN apt-get update && \
 
 # build conda environment with required r packages
 COPY r-bio.yaml /tmp
-RUN conda env create --file /tmp/r-bio.yaml
+RUN conda env create --file /tmp/r-bio.yaml && \
+    conda run -n r-bio /bin/bash -c "ipython kernel install --name=r-bio"
 
 # linux hack to remove paths to default R
 RUN rm -rf /opt/conda/bin/R /opt/conda/lib/R && \
