@@ -15,8 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Get git branch name
+      id: git-branch-name
+      uses: EthanSK/git-branch-name-action@v1
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ucsdets/cmm262-notebook:$GITHUB_REF_NAME
+      run: docker build . --file Dockerfile --tag ucsdets/cmm262-notebook:$GIT_BRANCH_NAME
     
     # https://github.com/docker/metadata-action
     - name: Login to DockerHub
@@ -26,4 +30,4 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
       
     - name: Push to Dockerhub
-      run: docker push ucsdets/cmm262-notebook:$GITHUB_REF_NAME
+      run: docker push ucsdets/cmm262-notebook:$GIT_BRANCH_NAME
