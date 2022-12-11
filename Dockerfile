@@ -49,7 +49,7 @@ RUN wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5
     chmod 755 /opt/FastQC/fastqc && \
     rm -rf /tmp/fastqc_*
 
-RUN mamba install -c conda-forge bash_kernel
+RUN mamba install -c conda-forge bash_kernel nb_conda_kernels
 
 # create scanpy_2021 conda environment with required python packages
 COPY scanpy_2021.yaml /tmp
