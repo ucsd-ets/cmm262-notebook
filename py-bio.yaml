@@ -4,7 +4,7 @@ channels:
 - bioconda
 - nodefaults
 dependencies:
-- conda-forge::python==3.7.12
+- conda-forge::python=3.7
 - conda-forge::pip==22.0.3
 - bioconda::goatools==1.1.12
 - conda-forge::networkx==2.6.3

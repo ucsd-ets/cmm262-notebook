@@ -12,7 +12,7 @@ dependencies:
 - bioconda::r-wgcna==1.69
 - conda-forge::r-igraph==1.2.6
 - r::r-netindices==1.4.4
-- conda-forge::python==3.8
+- conda-forge::python=3.8
 - conda-forge::pip==21.0.1
 - conda-forge::r-vegan==2.5_6
 - r::r-nhanes==2.1.0
