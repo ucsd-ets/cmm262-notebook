@@ -2,21 +2,21 @@ name: scanpy_2021
 channels:
   - conda-forge
   - bioconda
-  - defaults
+  - nodefaults
 dependencies:
-  - python=3.8
-  - seaborn
-  - pytables
-  - scikit-learn
-  - statsmodels
-  - numba
-  - python-igraph
-  - leidenalg
-  - ipykernel
-  - gprofiler-official
-  - rpy2
-  - jupyterlab
-  - r-matrix
-  - scanpy
-  - louvain
-  - anndata2ri
+  - conda-forge::python=3.8
+  - conda-forge::seaborn==0.11.2
+  - conda-forge::pytables==3.7.0
+  - conda-forge::scikit-learn==1.0.2
+  - conda-forge::statsmodels==0.13.2
+  - conda-forge::numba==0.55.1
+  - conda-forge::python-igraph==0.9.9
+  - conda-forge::leidenalg==0.8.9
+  - conda-forge::ipykernel==6.9.1
+  - bioconda::gprofiler-official==1.0.0
+  - conda-forge::rpy2==3.4.5
+  - conda-forge::jupyterlab==3.2.9
+  - conda-forge::r-matrix==1.4_0
+  - conda-forge::scanpy==1.8.2
+  - conda-forge::louvain==0.7.1
+  - bioconda::anndata2ri==1.0.6
