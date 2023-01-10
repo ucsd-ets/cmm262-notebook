@@ -1,4 +1,4 @@
-name: r-bio
+name: wi23-module1-programming-R
 channels:
 - conda-forge
 - bioconda
