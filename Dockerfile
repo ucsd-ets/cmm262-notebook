@@ -59,6 +59,10 @@ RUN mamba env create --file /tmp/spatial-tx.yml
 COPY variant_calling.yml /tmp
 RUN mamba env create --file /tmp/variant_calling.yml
 
+# create wi23-module1-programming-r conda environment with required r packages
+COPY wi23-module1-programming-R.yaml /tmp
+RUN mamba env create --file /tmp/wi23-module1-programming-R.yaml
+
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER
