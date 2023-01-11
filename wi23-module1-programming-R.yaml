@@ -1,4 +1,4 @@
-name: wi23-module1-programming-R
+name: programming-R
 channels:
 - conda-forge
 - bioconda
@@ -7,6 +7,7 @@ dependencies:
 - bioconda::bioconductor-GEOquery==2.66.0
 - bioconda::bioconductor-ensembldb==2.22.0
 - bioconda::bioconductor-EnsDb.Hsapiens.v79==2.99.0
+- conda-forge::r-ggplot2==3.4.0
 - conda-forge::r-pheatmap==1.0.12
 - conda-forge::python=3.8
 - conda-forge::pip==21.0.1
