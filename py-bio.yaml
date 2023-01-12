@@ -28,3 +28,4 @@ dependencies:
 - bioconda::samtools==1.15
 - bioconda::multiqc==1.12
 - bioconda::bowtie2==2.4.5
+- conda-forge::ipykernel==6.16.2
