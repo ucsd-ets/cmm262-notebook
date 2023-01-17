@@ -59,6 +59,9 @@ RUN mamba env create --file /tmp/spatial-tx.yml
 COPY variant_calling.yml /tmp
 RUN mamba env create --file /tmp/variant_calling.yml
 
+COPY chipseq.yml /tmp
+RUN mamba env create --file /tmp/chipseq.yml
+
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER
