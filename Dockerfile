@@ -62,6 +62,9 @@ RUN mamba env create --file /tmp/variant_calling.yml
 COPY programming-R.yaml /tmp
 RUN mamba env create --file /tmp/programming-R.yaml
 
+COPY chipseq.yml /tmp
+RUN mamba env create --file /tmp/chipseq.yml
+
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER
