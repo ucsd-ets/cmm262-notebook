@@ -40,6 +40,9 @@ RUN mamba env create --file /tmp/programming-R.yaml
 COPY chipseq.yml /tmp
 RUN mamba env create --file /tmp/chipseq.yml
 
+COPY gwas.yml /tmp
+RUN mamba env create --file /tmp/gwas.yml
+
 RUN yes | unminimize || echo "done"
 
 USER $NB_USER
