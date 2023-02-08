@@ -1,6 +1,7 @@
 name: spatialtx
 channels:
   - conda-forge
+  - nodefault
 dependencies:
   - conda-forge::python==3.9.16
   - conda-forge::numpy==1.23.5
@@ -8,7 +9,7 @@ dependencies:
   - conda-forge::pandas==1.5.3
   - conda-forge::opencv==4.7.0
   - conda-forge::cellpose==2.0.5
-  - conda-forge::scikit-image
+  - conda-forge::scikit-image==0.19.3
   - conda-forge::scanpy==1.9.1
   - conda-forge::squidpy==1.2.2
   - conda-forge::ipykernel==6.21.1
