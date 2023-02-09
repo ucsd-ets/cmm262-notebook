@@ -1,0 +1,14 @@
+name: chipseq
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - bioconda::bwa==0.7.17
+  - bioconda::homer==4.11
+  - bioconda::samtools==1.11
+  - conda-forge::python=3.8
+  - conda-forge::ipykernel==5.5.0
+  - conda-forge::matplotlib-base==3.62
+  - conda-forge::pandas==1.5.2
+  - conda-forge::ipyigv==0.1.9

@@ -1,4 +1,4 @@
-FROM ucsdets/datascience-rstudio:2021.3-stable
+FROM ucsdets/datahub-base-notebook:2023.1-stable
 
 USER root
 
@@ -28,15 +28,20 @@ RUN mamba install -c conda-forge bash_kernel nb_conda_kernels
 COPY scanpy_2021.yaml /tmp
 RUN mamba env create --file /tmp/scanpy_2021.yaml
 
-COPY spatial-tx.yml /tmp
-RUN mamba env create --file /tmp/spatial-tx.yml
-    
 COPY variant_calling.yml /tmp
 RUN mamba env create --file /tmp/variant_calling.yml
 
-# create programming-R conda environment with required R packages 
 COPY programming-R.yaml /tmp
 RUN mamba env create --file /tmp/programming-R.yaml
+
+COPY chipseq.yml /tmp
+RUN mamba env create --file /tmp/chipseq.yml
+
+COPY gwas.yml /tmp
+RUN mamba env create --file /tmp/gwas.yml
+
+COPY spatial-tx.yml /tmp
+RUN mamba env create --file /tmp/spatial-tx.yml
 
 RUN yes | unminimize || echo "done"
 
