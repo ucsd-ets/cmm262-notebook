@@ -15,7 +15,6 @@ on:
       - 'README.md'
       - '*.yaml'
   pull_request:
-    branches: [ "master" ]
   
 env:
   REGISTRY: ghcr.io
