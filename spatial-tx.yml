@@ -1,15 +1,15 @@
-name: spatial-tx
+name: spatialtx
 channels:
   - conda-forge
-  - bioconda
   - nodefaults
 dependencies:
-  - conda-forge::seaborn==0.11.2
-  - conda-forge::leidenalg==0.8.9
-  - conda-forge::ipykernel==6.4.1
-  - conda-forge::pip==21.2.4
-  - bioconda::scanpy==1.6.1
-  - conda-forge::scikit-learn==0.24.1
-  - bioconda::starfish==0.2.1
-  - pip:
-    - spatialde==1.1.3
+  - conda-forge::python==3.9.16
+  - conda-forge::numpy==1.23.5
+  - conda-forge::matplotlib==3.6.3
+  - conda-forge::pandas==1.5.3
+  - conda-forge::opencv==4.7.0
+  - conda-forge::cellpose==2.0.5
+  - conda-forge::scikit-image==0.19.3
+  - conda-forge::scanpy==1.9.1
+  - conda-forge::squidpy==1.2.2
+  - conda-forge::ipykernel==6.21.1
