@@ -8,13 +8,16 @@ name: Docker
 
 on:
   push:
-    branches: [ "master", "*" ]
+    branches: [ "master" ]
+    paths-ignore:
+      - 'README.md'
+      - '*.yaml'
+  pull_request:
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
     paths-ignore:
       - 'README.md'
       - '*.yaml'
-  pull_request:
   
 env:
   REGISTRY: ghcr.io
