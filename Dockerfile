@@ -40,6 +40,9 @@ RUN mamba env create --file /tmp/chipseq.yml
 COPY gwas.yml /tmp
 RUN mamba env create --file /tmp/gwas.yml
 
+COPY stats.yml /tmp
+RUN mamba env create --file /tmp/stats.yml
+
 COPY spatial-tx.yml /tmp
 RUN mamba env create --file /tmp/spatial-tx.yml
 

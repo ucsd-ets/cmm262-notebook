@@ -1,0 +1,11 @@
+name: stats
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - conda-forge::r-base==3.6.0
+  - conda-forge::r-irkernel==1.3.1
+  - conda-forge::r-palmerpenguins==0.1.0
+  - conda-forge::r-ggplot2==3.3.3
+  - conda-forge::r-ggridges==0.5.3 
+
