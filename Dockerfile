@@ -40,7 +40,7 @@ RUN mamba install -c conda-forge bash_kernel nb_conda_kernels
 # build conda environment with required r packages
 COPY r-bio.yaml /tmp
 RUN mamba env create --file /tmp/r-bio.yaml \
-    && conda clean -afy
+    && mamba clean -afy
 
 # linux hack to remove paths to default R
 RUN rm -rf /opt/conda/bin/R /opt/conda/lib/R && \
@@ -49,25 +49,30 @@ RUN rm -rf /opt/conda/bin/R /opt/conda/lib/R && \
 # # create py-bio conda environment with required python packages
 COPY py-bio.yaml /tmp
 RUN mamba env create --file /tmp/py-bio.yaml \
-    && conda clean -afy
+    && mamba clean -afy
 
 # create scanpy_2021 conda environment with required python packages
 COPY scanpy_2021.yaml /tmp
 RUN mamba env create --file /tmp/scanpy_2021.yaml \
-    && conda clean -afy
+    && mamba clean -afy
 
 COPY spatial-tx.yml /tmp
 RUN mamba env create --file /tmp/spatial-tx.yml \
-    && conda clean -afy
+    && mamba clean -afy
     
 COPY variant_calling.yml /tmp
 RUN mamba env create --file /tmp/variant_calling.yml \
-    && conda clean -afy
+    && mamba clean -afy
 
 # create programming-R conda environment with required R packages 
 COPY programming-R.yaml /tmp
 RUN mamba env create --file /tmp/programming-R.yaml \
-    && conda clean -afy
+    && mamba clean -afy
+
+# create image processing conda environment with required R packages 
+COPY imgproc.yml /tmp
+RUN mamba env create --file /tmp/imgproc.yml \
+    && mamba clean -afy
 
 RUN yes | unminimize || echo "done"
 
