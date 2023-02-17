@@ -8,3 +8,5 @@
 4. push branch to github & monitor the build under the actions tab
 5. if build successful, pull in your new tag from dockerhub and test it `launch-scipy-ml.sh -P Always -i ghcr.io/ucsd-ets/cmm262-notebook:TAG`
 6. if your tests are successful, merge your branch into the stable branch by creating & merging a pull request
+
+<!-- see also: https://docs.google.com/document/d/1Df4vyOCBh5n_lYc_bllbk_8-Vay4raYjEm4AVAEBz7s -->
