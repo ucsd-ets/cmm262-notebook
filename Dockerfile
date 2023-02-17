@@ -71,6 +71,11 @@ RUN mamba env create --file /tmp/spatial-tx.yml && \
 COPY imgproc.yml /tmp
 RUN mamba env create --file /tmp/imgproc.yml && \
     mamba clean -afy
+    
+# create rnaseq conda environment with required R packages 
+COPY rna-seq.yaml /tmp
+RUN mamba env create --file /tmp/rna-seq.yaml && \
+    mamba clean -afy
 
 RUN yes | unminimize || echo "done"
 
