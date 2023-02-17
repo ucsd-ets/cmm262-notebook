@@ -51,7 +51,6 @@ COPY py-bio.yaml /tmp
 RUN mamba env create --file /tmp/py-bio.yaml && \
     mamba clean -afy
 
-# create scanpy_2021 conda environment with required python packages
 COPY scanpy_2021.yaml /tmp
 RUN mamba env create --file /tmp/scanpy_2021.yaml && \
     mamba clean -afy
