@@ -69,7 +69,6 @@ COPY programming-R.yaml /tmp
 RUN mamba env create --file /tmp/programming-R.yaml && \
     mamba clean -afy
 
-# create image processing conda environment with required R packages 
 COPY imgproc.yml /tmp
 RUN mamba env create --file /tmp/imgproc.yml && \
     mamba clean -afy
