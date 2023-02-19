@@ -41,3 +41,4 @@ dependencies:
 - conda-forge::r-irkernel==1.1.1
 - conda-forge::r-palmerpenguins==0.1.0
 - conda-forge::r-ggridges==0.5.3
+- bioconda::bioconductor-biomart==2.42.0
