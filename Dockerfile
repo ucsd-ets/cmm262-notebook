@@ -51,29 +51,27 @@ COPY py-bio.yaml /tmp
 RUN mamba env create --file /tmp/py-bio.yaml && \
     mamba clean -afy
 
+# create scanpy_2021 conda environment with required python packages
 COPY scanpy_2021.yaml /tmp
 RUN mamba env create --file /tmp/scanpy_2021.yaml && \
+    mamba clean -afy
+
+COPY spatial-tx.yml /tmp
+RUN mamba env create --file /tmp/spatial-tx.yml && \
     mamba clean -afy
     
 COPY variant_calling.yml /tmp
 RUN mamba env create --file /tmp/variant_calling.yml && \
     mamba clean -afy
 
+# create programming-R conda environment with required R packages 
 COPY programming-R.yaml /tmp
 RUN mamba env create --file /tmp/programming-R.yaml && \
     mamba clean -afy
 
-COPY spatial-tx.yml /tmp
-RUN mamba env create --file /tmp/spatial-tx.yml && \
-    mamba clean -afy
-
+# create image processing conda environment with required R packages 
 COPY imgproc.yml /tmp
 RUN mamba env create --file /tmp/imgproc.yml && \
-    mamba clean -afy
-    
-# create rnaseq conda environment with required R packages 
-COPY rna-seq.yaml /tmp
-RUN mamba env create --file /tmp/rna-seq.yaml && \
     mamba clean -afy
 
 RUN yes | unminimize || echo "done"
