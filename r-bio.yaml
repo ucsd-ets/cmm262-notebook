@@ -42,3 +42,6 @@ dependencies:
 - conda-forge::r-palmerpenguins==0.1.0
 - conda-forge::r-ggridges==0.5.3
 - bioconda::bioconductor-biomart==2.42.0
+- conda-forge::r-reshape2
+- conda-forge::r-tidyverse
+- bioconda::vcf2tsvpy
