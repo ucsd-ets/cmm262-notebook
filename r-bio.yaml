@@ -44,4 +44,3 @@ dependencies:
 - bioconda::bioconductor-biomart==2.42.0
 - conda-forge::r-reshape2
 - conda-forge::r-tidyverse
-- bioconda::vcf2tsvpy
