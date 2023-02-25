@@ -64,7 +64,6 @@ COPY variant_calling.yml /tmp
 RUN mamba env create --file /tmp/variant_calling.yml && \
     mamba clean -afy
 
-# create programming-R conda environment with required R packages 
 COPY programming-R.yaml /tmp
 RUN mamba env create --file /tmp/programming-R.yaml && \
     mamba clean -afy
