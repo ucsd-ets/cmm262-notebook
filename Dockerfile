@@ -60,9 +60,9 @@ COPY spatial-tx.yml /tmp
 RUN mamba env create --file /tmp/spatial-tx.yml && \
     mamba clean -afy
     
-COPY variant_calling.yml /tmp
-RUN mamba env create --file /tmp/variant_calling.yml && \
-    mamba clean -afy
+# COPY variant_calling.yml /tmp
+# RUN mamba env create --file /tmp/variant_calling.yml && \
+#     mamba clean -afy
 
 COPY programming-R.yaml /tmp
 RUN mamba env create --file /tmp/programming-R.yaml && \
