@@ -10,5 +10,6 @@ dependencies:
 - conda-forge::matplotlib==3.7.0
 - conda-forge::matplotlib-venn==0.11.9
 - conda-forge::pip==23.0.1
+- conda-forge::ipykernel==6.21.2
 - pip:
   - statannot==0.2.3
