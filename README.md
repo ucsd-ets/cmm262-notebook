@@ -1,5 +1,9 @@
 # cmm262-notebook
 
+> **Warning**
+> :warning: **This repository is obsolete and no longer maintained.**
+> Instead, please refer to https://github.com/biom262/cmm262-notebook
+
 ## Build instructions
 
 1. Clone the repo
